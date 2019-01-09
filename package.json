@@ -1,0 +1,19 @@
+{
+  "name": "projet_web_lpiot",
+  "version": "1.0.0",
+  "description": "Projet fait dans le cadre de la LP IOT Descartes",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "exec-sql": "^2.0.2",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  }
+}
