@@ -81,7 +81,6 @@ app.post('/api/getModule', (req, res) => {
     var requete = mysql.format('SELECT id_uemod as id, nom as name FROM uemodule where classif="ue" and id_form = ?', [req.body.id_form]);
     db.query(requete, (err, result, fields) => {
         if (err) throw err;
-        console.log(JSON.parse( JSON.stringify(result) ))
         res.send( JSON.parse( JSON.stringify(result) )   )
     })
 })

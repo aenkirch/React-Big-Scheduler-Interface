@@ -24,17 +24,21 @@ export class HomeSelects extends Component{
 
     render(){
         return (
-            <div style={{ width: 200, height: 200 }}>
-                <Select
-                    options={this.props.allFormations}
-                    onChange={this.loadFormGroupe}
-                    placeholder="Choisissez votre formation..."
-                />
-                <Select
-                    options={this.props.allGroupes}
-                    onChange={this.loadAgenda}
-                    placeholder="Choisissez votre groupe..."
-                />
+            <div style={{ width: 400, height: 200, margin: '0 auto', marginTop: '1%' }}>
+                <div style={{ marginBottom: '2%' }}>
+                    <Select
+                        options={this.props.allFormations}
+                        onChange={this.loadFormGroupe}
+                        placeholder="Choisissez votre formation..."
+                    />
+                </div>
+                <div>
+                    <Select
+                        options={this.props.allGroupes}
+                        onChange={this.loadAgenda}
+                        placeholder="Choisissez votre groupe..."
+                    />
+                </div>
             </div>
         )
     }
