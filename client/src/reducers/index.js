@@ -18,49 +18,49 @@ const schedulerDataReducer = (state = new SchedulerData('2018-10-17', ViewTypes.
       return tempScheduler;
  
     case LOAD_AGENDA_DATA_AFTER_EDIT:
-      tempScheduler.setResources(state.schedulerData.resources);
+      tempScheduler.setResources(state.resources);
       tempScheduler.setEvents(action.payload.events);
       return tempScheduler;
  
     case PREV_CLICK:
       tempScheduler.prev();
-      tempScheduler.setResources(state.schedulerData.resources);
-      tempScheduler.setEvents(state.schedulerData.events);
+      tempScheduler.setResources(state.resources);
+      tempScheduler.setEvents(state.events);
       return tempScheduler;
  
     case NEXT_CLICK:
       tempScheduler.next();
-      tempScheduler.setResources(state.schedulerData.resources);
-      tempScheduler.setEvents(state.schedulerData.events);
+      tempScheduler.setResources(state.resources);
+      tempScheduler.setEvents(state.events);
       return tempScheduler;
  
     case ON_VIEW_CHANGE:
       tempScheduler.setViewType(action.payload.viewType, action.payload.showAgenda, action.payload.isEventPerspective);
-      tempScheduler.setResources(state.schedulerData.resources);
-      tempScheduler.setEvents(state.schedulerData.events);
+      tempScheduler.setResources(state.resources);
+      tempScheduler.setEvents(state.events);
       return tempScheduler;
  
     case ON_SELECT_DATE:
       tempScheduler.setDate(action.payload);
-      tempScheduler.setResources(state.schedulerData.resources);
-      tempScheduler.setEvents(state.schedulerData.events);
+      tempScheduler.setResources(state.resources);
+      tempScheduler.setEvents(state.events);
       return tempScheduler;
  
     case MOVE_EVENT:
-      tempScheduler.setResources(state.schedulerData.resources);
-      tempScheduler.setEvents(state.schedulerData.events);
+      tempScheduler.setResources(state.resources);
+      tempScheduler.setEvents(state.events);
       tempScheduler.moveEvent(action.payload.event, action.payload.slotId, action.payload.slotName, action.payload.start, action.payload.end);
       return tempScheduler;
  
     case UPDATE_EVENT_START:
-      tempScheduler.setResources(state.schedulerData.resources);
-      tempScheduler.setEvents(state.schedulerData.events);
+      tempScheduler.setResources(state.resources);
+      tempScheduler.setEvents(state.events);
       tempScheduler.updateEventStart(action.payload.event, action.payload.newStart);
       return tempScheduler;
  
     case UPDATE_EVENT_END:
-      tempScheduler.setResources(state.schedulerData.resources);
-      tempScheduler.setEvents(state.schedulerData.events);
+      tempScheduler.setResources(state.resources);
+      tempScheduler.setEvents(state.events);
       tempScheduler.updateEventEnd(action.payload.event, action.payload.newEnd);
       return tempScheduler;
  

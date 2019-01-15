@@ -2,11 +2,11 @@ import React from "react";
 import MyScheduler from "./MyScheduler";
 import HomeSelects from "./HomeSelects";
 
-const App = () => (
+const Home = () => (
     <div>
         <MyScheduler />
         <HomeSelects />
     </div>
 );
 
-export default App;
+export default Home;
