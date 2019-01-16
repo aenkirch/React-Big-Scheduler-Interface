@@ -136,6 +136,13 @@ app.get('/api/fillFormUE', (req, res) => {
     })
 })
 
+app.get('/api/getNbGroupes', (req, res) => {
+    db.query('SELECT COUNT(id_grpe) FROM groupe', (err, result, fields) => {
+        if (err) throw err;
+        res.send( JSON.parse( JSON.stringify(result) )   )
+    });
+})
+
 // Création de formation
 app.post('/api/createFormation', (req, res) => {
     var requete = mysql.format('INSERT into formation VALUES(?, ?, ?)', [req.body.id, req.body.nom, req.body.label]);
@@ -156,7 +163,7 @@ app.post('/api/createMatiere', (req, res) => {
 
 // Création de groupe
 app.post('/api/createGroupe', (req, res) => {
-    var requete = mysql.format('INSERT into groupe VALUES(?, ?, ?, ?)', [req.body.id_grpe, req.body.id_promo, "", req.body.num_grpe]);
+    var requete = mysql.format('INSERT into groupe VALUES(?, ?, ?, ?)', [req.body.id_grpe, req.body.id_promo, req.body.type_grpe, req.body.num_grpe]);
     db.query(requete, (err, result, fields) => {
         if (err) throw err;
         res.send( JSON.parse( JSON.stringify(result) )   )

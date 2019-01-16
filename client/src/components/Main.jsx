@@ -5,7 +5,8 @@ import {
     HashRouter
   } from "react-router-dom";
 import Home from './Home/Home';
-import Creating from './Creating'
+import Creating from './Creating/Creating';
+import {ToastContainer} from 'react-toastify';
 
 class Main extends Component {
     render() {
@@ -23,6 +24,7 @@ class Main extends Component {
                 <Route exact path="/" component={Home}/>
                 <Route path="/creating" component={Creating}/>
             </div>
+            <ToastContainer />
           </div>
         </HashRouter>
       );

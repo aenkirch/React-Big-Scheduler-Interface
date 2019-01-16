@@ -1,7 +1,7 @@
 import React from 'react';
 import Scheduler from 'react-big-scheduler';
 import withDragDropContext from '../../withDnDContext';
-import { prevClick, nextClick, onViewChange, onSelectDate, saveEvent, deleteEvent, moveEvent, updateEventEnd, updateEventStart } from '../../actions/index';
+import { prevClick, nextClick, onViewChange, onSelectDate, saveEvent, deleteEvent, moveEvent, updateEventEnd, updateEventStart } from '../../actions/schedulerActions';
 import { connect } from "react-redux";
 import 'react-big-scheduler/lib/css/style.css';
 

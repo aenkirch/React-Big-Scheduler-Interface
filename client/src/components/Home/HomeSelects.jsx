@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Select from 'react-select';
-import { getAllFormations, getAllGroupes, loadAgendaData } from '../../actions/index';
+import { getAllFormations, getAllGroupes, loadAgendaData } from '../../actions/homeActions';
 
 export class HomeSelects extends Component{
     constructor(){

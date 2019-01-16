@@ -1,6 +1,4 @@
-
-import { LOAD_AGENDA_DATA, ALL_FORMATIONS_LOADED, 
-    ALL_GROUPES_LOADED, PREV_CLICK, NEXT_CLICK,
+import { PREV_CLICK, NEXT_CLICK,
     ON_VIEW_CHANGE, ON_SELECT_DATE,
     LOAD_AGENDA_DATA_AFTER_EDIT, 
     MOVE_EVENT, UPDATE_EVENT_END,
@@ -9,52 +7,12 @@ import store from "../store/index";
 import axios from 'axios';
 import moment from 'moment';
 
-export function loadAgendaData(idFormation, idGroupe) {
-    return function(dispatch){
-        return axios.post('/api/getModule', {
-            id_form: idFormation
-        }).then((resResources) => {
-            return axios.post('/api/getCreneaux', {
-                id_grpe: idGroupe
-            }).then((resEvents) => {
-                resEvents.data.forEach((element) => {
-                    element.start = moment.unix(element.start).format("YYYY-MM-DD HH:mm:ss");
-                    element.end = moment.unix(element.end).format("YYYY-MM-DD HH:mm:ss");
-                })
-                dispatch({ type: LOAD_AGENDA_DATA, payload: {resources: resResources.data, events: resEvents.data, idFormation: idFormation, idGroupe: idGroupe} })
-            })
-        })
-    }
-};
-
-export function getAllFormations() {
-    return function(dispatch){
-        return fetch("/api/getFormations")
-        .then(response => response.json())
-        .then(json => {
-          dispatch({ type: ALL_FORMATIONS_LOADED, payload: json });
-        });
-    }
-}
-
-export function getAllGroupes(idFormation) {
-    return function(dispatch){
-        return axios.post('/api/getGroupe', {id_form: idFormation})
-        .then((response) => {
-            dispatch({ type: ALL_GROUPES_LOADED, payload: response.data })
-        })
-        .catch((err) => {
-            throw err;
-        })
-    }
-}
-
 export function prevClick(){
-    return ({type: PREV_CLICK, payload: {}})
+    return ({type: PREV_CLICK})
 }
 
 export function nextClick(){
-    return ({type: NEXT_CLICK, payload: {}})
+    return ({type: NEXT_CLICK})
 }
 
 export function onViewChange(schedulerData, view){
