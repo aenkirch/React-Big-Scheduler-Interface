@@ -15,3 +15,7 @@ export const UPDATE_EVENT_START = "UPDATE_EVENT_START";
 export const UPDATE_EVENT_END = "UPDATE_EVENT_END";
 
 //  related to creating section
+export const ALL_MODULES_LOADED = "ALL_MODULES_LOADED";
+export const ALL_MATIERES_LOADED = "ALL_MATIERES_LOADED";
+export const ALL_PROFS_LOADED = "ALL_PROFS_LOADED";
+export const ALL_SALLES_LOADED = "ALL_SALLES_LOADED";

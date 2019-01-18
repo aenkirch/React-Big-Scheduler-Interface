@@ -87,15 +87,17 @@ app.post('/api/getModule', (req, res) => {
 
 // Toutes les matieres
 app.get('/api/getAllMatieres', (req, res) => {
-    db.query("SELECT id_mat as value, nom as label from matiere", (err, result, fields) => {
+    var requete = mysql.format("SELECT id_mat as value, nom as label from matiere WHERE id_ue = ?", [req.body.id_module]);
+    db.query(requete, (err, result, fields) => {
         if (err) throw err;
-        res.send( JSON.parse( JSON.stringify(result) )   )
+        res.send( JSON.parse( JSON.stringify(result) )   )  // FAIRE UNE REQUETE QUI CHARGE LES MATIERES QUI ONT UN UE QUI CORRESPOND A LA FORMATION SELECTIONNEE
+                                                            // JOIN ?
     })
 })
 
 // Tout les groupes (pour l'id du groupe crée)
 app.get('/api/getAllModules', (req, res) => {
-    db.query('SELECT * FROM uemodule', (err, result, fields) => {
+    db.query('SELECT id_uemod as value, nom as label FROM uemodule WHERE classif = "ue"', (err, result, fields) => {
         if (err) throw err;
         res.send( JSON.parse( JSON.stringify(result) )   )
     })
@@ -143,6 +145,13 @@ app.get('/api/getNbGroupes', (req, res) => {
     });
 })
 
+app.get('/api/getNbMatieres', (req, res) => {
+    db.query('SELECT COUNT(id_mat) FROM matiere', (err, result, fields) => {
+        if (err) throw err;
+        res.send( JSON.parse( JSON.stringify(result) )   )
+    });
+})
+
 // Création de formation
 app.post('/api/createFormation', (req, res) => {
     var requete = mysql.format('INSERT into formation VALUES(?, ?, ?)', [req.body.id, req.body.nom, req.body.label]);
@@ -154,7 +163,7 @@ app.post('/api/createFormation', (req, res) => {
 
 // Création de formation
 app.post('/api/createMatiere', (req, res) => {
-    var requete = mysql.format('INSERT into matiere VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [req.body.id_mat, req.body.id_ue, 1, 1, req.body.nom, req.body.label, 0, req.body.couleur, req.body.themes, req.body.typeEns]);
+    var requete = mysql.format('INSERT into matiere VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [req.body.id_mat, req.body.id_ue, 1, 1, req.body.nom, req.body.label, 0, req.body.couleur, '', '']);
     db.query(requete, (err, result, fields) => {
         if (err) throw err;
         res.send( JSON.parse( JSON.stringify(result) )   )
