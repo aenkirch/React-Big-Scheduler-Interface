@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Select from "react-select";
-import { /*createCreneau, */getAllMatieres, getAllProfs, getAllSalles } from '../../actions/creatingActions';
+import { createCreneau, getAllMatieres, getAllProfs, getAllSalles } from '../../actions/creatingActions';
 import { getAllFormations, getAllGroupes } from '../../actions/homeActions';
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 class CreatingCreneau extends Component{
     constructor(){
@@ -12,11 +15,13 @@ class CreatingCreneau extends Component{
             selectedGroupe: {},
             selectedMatiere: {},
             selectedProf: {},
-            selectedSalle: {}
+            selectedSalle: {},
+            debutCreneau: new Date(),
+            finCreneau: new Date()
         }
     }
 
-    componentDidMount = () => { this.props.getAllFormations(); this.props.getAllMatieres(); this.props.getAllProfs(); this.props.getAllSalles(); }
+    componentDidMount = () => { this.props.getAllFormations(); this.props.getAllProfs(); this.props.getAllSalles(); }
 
     handleChange = (event) => {
         event.preventDefault();
@@ -25,10 +30,13 @@ class CreatingCreneau extends Component{
 
     loadFormGroupe = (event) => {
         this.setState({selectedFormation: event});
+        this.props.getAllMatieres(event.id);
         this.props.getAllGroupes(event.id);
     }
 
-    createMatiere = () => {this.props.createMatiere(this.state.selectedModule.value, this.state.champNomMatiere, this.state.champLabelMatiere, this.state.champCouleurMatiere)};
+    createCreneau = () => { this.props.createCreneau(this.state.debutCreneau, this.state.finCreneau, 
+                            this.state.selectedMatiere.value, this.state.selectedProf.value, this.state.selectedGroupe.value, 
+                            this.state.selectedSalle.value  )};
 
     render(){
         return(
@@ -68,9 +76,23 @@ class CreatingCreneau extends Component{
                     placeholder="Choisissez la salle..."
                 /> <br />
                 Entrez le début du créneau : <br />
-                <input type="text" placeholder="ex : 2018-10-17 15:00:00" value={this.state.debutCreneau} onChange={e => this.handleChange(e)} name="debutCreneau" /> <br />
+                <DatePicker
+                    selected={this.state.debutCreneau}
+                    onChange={(e) => {this.setState({debutCreneau: e})}}
+                    showTimeSelect
+                    timeIntervals={15}
+                    dateFormat="yyyy-MM-dd h:mm:ss"
+                    timeCaption="time"
+                /> <br />
                 Entrez la fin du créneau : <br />
-                <input type="text" placeholder="ex : 2018-10-17 18:00:00" value={this.state.finCreneau} onChange={e => this.handleChange(e)} name="finCreneau" /> <br />
+                <DatePicker
+                    selected={this.state.finCreneau}
+                    onChange={(e) => {this.setState({finCreneau: e})}}
+                    showTimeSelect
+                    timeIntervals={15}
+                    dateFormat="yyyy-MM-dd h:mm:ss"
+                    timeCaption="time"
+                /> <br />
                 <button onClick={(e) => this.createCreneau(e)}>Valider</button> <br /> <br />
             </div>
         )
@@ -87,4 +109,4 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(mapStateToProps, {getAllFormations, getAllGroupes, getAllMatieres, getAllProfs, getAllSalles/*, createCreneau*/})(CreatingCreneau);
+export default connect(mapStateToProps, {getAllFormations, getAllGroupes, getAllMatieres, getAllProfs, getAllSalles, createCreneau})(CreatingCreneau);

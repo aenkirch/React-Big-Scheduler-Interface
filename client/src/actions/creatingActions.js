@@ -3,6 +3,7 @@ import axios from 'axios';
 import store from "../store/index";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import moment from 'moment';
 
 export function getAllModules() {
     return function(dispatch){
@@ -14,13 +15,13 @@ export function getAllModules() {
     }
 }
 
-export function getAllMatieres() {
+export function getAllMatieres(selectedFormationId) {
     return function(dispatch){
-        return fetch("/api/getAllMatieres")
-        .then(response => response.json())
-        .then(json => {
-          dispatch({ type: ALL_MATIERES_LOADED, payload: json });
-        });
+        return axios.post("/api/getAllMatieres", {
+            id_formation: selectedFormationId
+        }).then((res) => {
+            dispatch({ type: ALL_MATIERES_LOADED, payload: res.data });
+        })
     }
 }
 
@@ -106,5 +107,27 @@ export function createMatiere(selectedModuleId, champNomMatiere, champLabelMatie
                 dispatch({type: ''});
             })
         }).catch((err) => { toast.error("Erreur ! Matière "+champNomMatiere+" non crée.") });
+    }
+}
+
+export function createCreneau(debutCreneau, finCreneau, id_mat, id_prof, id_grpe, id_salle){
+    return function(dispatch){
+        return fetch('/api/getNbCreneaux')
+        .then(response => response.json())
+        .then(json => {
+            return axios.post('/api/createCreneau', {
+                id_creneau: parseInt(json)+1,
+                tDeb: moment(debutCreneau).format('X'),
+                tFin: moment(finCreneau).format('X'),
+                id_edth: '',
+                id_mat: id_mat,
+                id_prof: id_prof,
+                id_grpe: id_grpe,
+                id_salle: id_salle
+            }).then((res) => {
+                toast.success("Créneau crée avec succès !");
+                dispatch({type: ''});
+            })
+        }).catch((err) => { toast.error("Erreur ! Créneau non crée.") });
     }
 }

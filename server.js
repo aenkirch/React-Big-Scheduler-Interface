@@ -86,12 +86,11 @@ app.post('/api/getModule', (req, res) => {
 })
 
 // Toutes les matieres
-app.get('/api/getAllMatieres', (req, res) => {
-    var requete = mysql.format("SELECT id_mat as value, nom as label from matiere WHERE id_ue = ?", [req.body.id_module]);
+app.post('/api/getAllMatieres', (req, res) => {
+    var requete = mysql.format("SELECT m.id_mat as value, m.nom as label from matiere m join uemodule u on m.id_ue=u.id_uemod where u.id_form=?", [req.body.id_formation]);
     db.query(requete, (err, result, fields) => {
         if (err) throw err;
-        res.send( JSON.parse( JSON.stringify(result) )   )  // FAIRE UNE REQUETE QUI CHARGE LES MATIERES QUI ONT UN UE QUI CORRESPOND A LA FORMATION SELECTIONNEE
-                                                            // JOIN ?
+        res.send( JSON.parse( JSON.stringify(result) )   ) 
     })
 })
 
@@ -140,6 +139,13 @@ app.get('/api/fillFormUE', (req, res) => {
 
 app.get('/api/getNbGroupes', (req, res) => {
     db.query('SELECT COUNT(id_grpe) FROM groupe', (err, result, fields) => {
+        if (err) throw err;
+        res.send( JSON.parse( JSON.stringify(result) )   )
+    });
+})
+
+app.get('/api/getNbCreneaux', (req, res) => {
+    db.query('SELECT COUNT(id_creneau) FROM creneau', (err, result, fields) => {
         if (err) throw err;
         res.send( JSON.parse( JSON.stringify(result) )   )
     });
