@@ -4,6 +4,7 @@ import Select from "react-select";
 import { createCreneau, getAllMatieres, getAllProfs, getAllSalles } from '../../actions/creatingActions';
 import { getAllFormations, getAllGroupes } from '../../actions/homeActions';
 import DatePicker from "react-datepicker";
+import { Form, Button } from 'semantic-ui-react';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -40,61 +41,71 @@ class CreatingCreneau extends Component{
 
     render(){
         return(
-            <div style={{width: 300, margin: '0 auto'}}>
-                <h2>Creation de créneau</h2> <br />
-                <div style={{marginBottom: '2%'}}>
+            <Form style={{margin: '1%'}}>
+                <Form.Field>
+                    <label>Choisissez votre formation...</label>
                     <Select
                             options={this.props.allFormations}
                             onChange={this.loadFormGroupe}
                             placeholder="Choisissez votre formation..."
                     />
-                </div>
-                <div style={{marginBottom: '2%'}}>
+                </Form.Field>
+                <Form.Field>
+                    <label>Choisissez votre groupe...</label>
                     <Select
                             options={this.props.allGroupes}
                             onChange={(e) => {this.setState({selectedGroupe: e})}}
                             placeholder="Choisissez votre groupe..."
                     />
-                </div>
-                <div style={{marginBottom: '2%'}}>
+                </Form.Field>
+                <Form.Field>
+                    <label>Choisissez votre matière...</label>
                     <Select
                         onChange={e => this.setState({ selectedMatiere: e })}
                         options={this.props.allMatieres}
                         placeholder="Choisissez votre matière..."
                     />
-                </div>
-                <div style={{marginBottom: '2%'}}>
+                </Form.Field>
+                <Form.Field>
+                    <label>Choisissez le professeur...</label>
                     <Select
                         onChange={e => this.setState({ selectedProf: e })}
                         options={this.props.allProfs}
                         placeholder="Choisissez le professeur..."
                     />
-                </div>
-                <Select
-                    onChange={e => this.setState({ selectedSalle: e })}
-                    options={this.props.allSalles}
-                    placeholder="Choisissez la salle..."
-                /> <br />
-                Entrez le début du créneau : <br />
-                <DatePicker
-                    selected={this.state.debutCreneau}
-                    onChange={(e) => {this.setState({debutCreneau: e})}}
-                    showTimeSelect
-                    timeIntervals={15}
-                    dateFormat="yyyy-MM-dd h:mm:ss"
-                    timeCaption="time"
-                /> <br />
-                Entrez la fin du créneau : <br />
-                <DatePicker
-                    selected={this.state.finCreneau}
-                    onChange={(e) => {this.setState({finCreneau: e})}}
-                    showTimeSelect
-                    timeIntervals={15}
-                    dateFormat="yyyy-MM-dd h:mm:ss"
-                    timeCaption="time"
-                /> <br />
-                <button onClick={(e) => this.createCreneau(e)}>Valider</button> <br /> <br />
-            </div>
+                </Form.Field>
+                <Form.Field>
+                    <label>Choisissez la salle...</label>
+                    <Select
+                        onChange={e => this.setState({ selectedSalle: e })}
+                        options={this.props.allSalles}
+                        placeholder="Choisissez la salle..."
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <label>Début du créneau</label>
+                    <DatePicker
+                        selected={this.state.debutCreneau}
+                        onChange={(e) => {this.setState({debutCreneau: e})}}
+                        showTimeSelect
+                        timeIntervals={15}
+                        dateFormat="yyyy-MM-dd h:mm:ss"
+                        timeCaption="time"
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <label>Fin du créneau</label>
+                    <DatePicker
+                        selected={this.state.finCreneau}
+                        onChange={(e) => {this.setState({finCreneau: e})}}
+                        showTimeSelect
+                        timeIntervals={15}
+                        dateFormat="yyyy-MM-dd h:mm:ss"
+                        timeCaption="time"
+                    />
+                </Form.Field>
+                <Button onClick={(e) => this.createCreneau(e)}>Valider</Button>
+            </Form>
         )
     }
 }

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Select from "react-select";
 import { getAllFormations } from '../../actions/homeActions';
 import { createModule } from '../../actions/creatingActions';
+import { Form, Button } from 'semantic-ui-react';
 
 class CreatingModule extends Component{
     constructor(){
@@ -25,19 +26,25 @@ class CreatingModule extends Component{
 
     render(){
         return(
-            <div style={{width: 300, margin: '0 auto'}}>
-                <h2>Création d'UE</h2> <br />
-                <Select
-                    onChange={(e) => {this.setState({selectedFormation: e})}}
-                    options={this.props.allFormations}
-                    placeholder="Choisissez votre formation..."
-                /> <br />
-                Entrez le nom de l'UE à créer : <br />
-                <input type="text" value={this.state.champNomModule} onChange={e => this.handleChange(e)} name="champNomModule" /> <br />
-                Entrez le label de l'UE à créer : <br />
-                <input type="text" value={this.state.champLabelModule} onChange={e => this.handleChange(e)} name="champLabelModule" />
-                <button onClick={() => this.createModule()}>Valider</button>
-            </div>
+            <Form style={{margin: '1%'}}>
+                <Form.Field>
+                    <label>Choisissez votre formation...</label>
+                    <Select
+                            onChange={(e) => {this.setState({selectedFormation: e})}}
+                            options={this.props.allFormations}
+                            placeholder="Choisissez votre formation..."
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <label>Nom du Module</label>
+                    <input type="text" value={this.state.champNomModule} onChange={e => this.handleChange(e)} name="champNomModule" placeholder='Nom du Module' />
+                </Form.Field>
+                <Form.Field>
+                    <label>Label du Module</label>
+                    <input type="text" value={this.state.champLabelModule} onChange={e => this.handleChange(e)} name="champLabelModule" placeholder='Label du Module' />
+                </Form.Field>
+                <Button onClick={() => this.createModule()}>Valider</Button>
+            </Form>
         )
     }
 }

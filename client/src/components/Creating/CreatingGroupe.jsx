@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createGroupe } from '../../actions/creatingActions';
 import Select from "react-select";
 import { getAllFormations } from '../../actions/homeActions';
+import { Form, Button } from 'semantic-ui-react';
 
 class CreatingGroupe extends Component{
     constructor(){
@@ -25,21 +26,25 @@ class CreatingGroupe extends Component{
 
     render(){
         return(
-            <div style={{width: 300, margin: '0 auto'}}>
-                <h2>Création de groupe</h2> <br />
-                <div style={{marginBottom:'5%'}}>
+            <Form style={{margin: '1%'}}>
+                <Form.Field>
+                    <label>Choisissez votre formation...</label>
                     <Select
-                        options={this.props.allFormations}
-                        onChange={(e) => {this.setState({selectedFormation: e})}}
-                        placeholder="Choisissez votre formation..."
+                            onChange={(e) => {this.setState({selectedFormation: e})}}
+                            options={this.props.allFormations}
+                            placeholder="Choisissez votre formation..."
                     />
-                </div>
-                Entrez le type du groupe à créer : <br />
-                <input type="text" value={this.state.champTypeGroupe} onChange={e => this.handleChange(e)} name="champTypeGroupe" /> <br /> <br />
-                Entrez le numéro du groupe à créer : <br />
-                <input type="text" value={this.state.champNumeroGroupe} onChange={e => this.handleChange(e)} name="champNumeroGroupe" />
-                <button onClick={(e) => this.createGroupe(e)}>Valider</button>
-            </div>
+                </Form.Field>
+                <Form.Field>
+                    <label>Type du Groupe</label>
+                    <input type="text" value={this.state.champTypeGroupe} onChange={e => this.handleChange(e)} name="champTypeGroupe" placeholder='Type du Groupe' />
+                </Form.Field>
+                <Form.Field>
+                    <label>Numéro de Groupe</label>
+                    <input type="text" value={this.state.champNumeroGroupe} onChange={e => this.handleChange(e)} name="champNumeroGroupe" placeholder='Numéro de Groupe' />
+                </Form.Field>
+                <Button onClick={(e) => this.createGroupe(e)}>Valider</Button>
+            </Form>
         )
     }
 }

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Select from "react-select";
 import { createMatiere, getAllModules } from '../../actions/creatingActions';
-import { TwitterPicker } from "react-color";
+import { CompactPicker } from "react-color";
+import { Form, Button } from 'semantic-ui-react';
 
 class CreatingMatiere extends Component{
     constructor(){
@@ -26,23 +27,29 @@ class CreatingMatiere extends Component{
 
     render(){
         return(
-            <div style={{width: 300, margin: '0 auto'}}>
-                <h2>Création de matière</h2> <br />
-                <Select
-                    onChange={(e) => {this.setState({selectedModule: e})}}
-                    options={this.props.allModules}
-                    placeholder="Choisissez votre module..."
-                /> <br />
-                Entrez le nom de la matière à créer : <br />
-                <input type="text" value={this.state.champNomMatiere} onChange={e => this.handleChange(e)} name="champNomMatiere" /> <br />
-                Entrez le label de la matière à créer : <br />
-                <input type="text" value={this.state.champLabelMatiere} onChange={e => this.handleChange(e)} name="champLabelMatiere" /> <br />
-                Choisissez la couleur des créneaux de cette matière: <br />
-                <div style={{marginTop: "5%"}}>
-                    <TwitterPicker color={this.state.champCouleurMatiere} onChangeComplete={(e) => {this.setState({champCouleurMatiere: e.hex})}}/>
-                </div> <br />
-                <button onClick={() => this.createMatiere()}>Valider</button> <br />
-            </div>
+            <Form style={{margin: '1%'}}>
+                <Form.Field>
+                    <label>Choisissez votre module...</label>
+                    <Select
+                        onChange={(e) => {this.setState({selectedModule: e})}}
+                        options={this.props.allModules}
+                        placeholder="Choisissez votre module..."
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <label>Nom de la matière</label>
+                    <input type="text" value={this.state.champNomMatiere} onChange={e => this.handleChange(e)} name="champNomMatiere" placeholder='Nom de la matière' />
+                </Form.Field>
+                <Form.Field>
+                    <label>Label de la matière</label>
+                    <input type="text" value={this.state.champLabelMatiere} onChange={e => this.handleChange(e)} name="champLabelMatiere" placeholder='Label de la matière' />
+                </Form.Field>
+                <Form.Field>
+                    <label>Couleur de la matière</label>
+                    <CompactPicker color={this.state.champCouleurMatiere} onChangeComplete={(e) => {this.setState({champCouleurMatiere: e.hex})}}/>
+                </Form.Field>
+                <Button onClick={() => this.createMatiere()}>Valider</Button>
+            </Form>
         )
     }
 }
