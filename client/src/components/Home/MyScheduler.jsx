@@ -32,13 +32,13 @@ export class ConnectedScheduler extends React.Component {
                     nextClick={this.nextClick}
                     onViewChange={this.onViewChange}
                     onSelectDate={this.onSelectDate}
-                    viewEventClick={this.op1}
+                    viewEventClick={this.op1}           
                     viewEventText="Sauvegarder"
                     viewEvent2Click={this.op2}
                     viewEvent2Text="Supprimer"
                     moveEvent={this.moveEvent}
-                    updateEventStart={this.updateEventStart}
-                    updateEventEnd={this.updateEventEnd}
+                    updateEventStart={this.updateEventStart}    // AJOUTER UN ENCART "INFOS SUR LE CRENEAU" AU CLIC
+                    updateEventEnd={this.updateEventEnd}        // VOIR ONGLET 'SPECIFICATIONS' dans categorie divider de react semantic ui 
                 />
             </div>
         )

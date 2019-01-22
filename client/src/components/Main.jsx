@@ -6,7 +6,8 @@ import {
   } from "react-router-dom";
 import Home from './Home/Home';
 import Creating from './Creating/Creating';
-import {ToastContainer} from 'react-toastify';    // PASSER SUR SEMANTIC UI POUR LA CONF AVEC UN ONGLET PAR CONF (ajout de créneau, etc...)
+import {ToastContainer} from 'react-toastify';    // DEMARRER L'ONGLET ADMIN (AVEC AJOUTS PROFS / ETC)
+import { Icon } from 'semantic-ui-react';
 
 class Main extends Component {
     render() {
@@ -14,13 +15,13 @@ class Main extends Component {
         <HashRouter>
           <div style={{margin: '1%'}}>
             <ul className="header">
-                <li><NavLink exact to="/">home</NavLink></li>
+                <li><NavLink exact to="/"><Icon name='calendar alternate' size='big'/></NavLink></li>
                 <li><NavLink to="/creating">creating</NavLink></li>
-                <li><NavLink to="/editing">editing</NavLink></li>
-                <li><NavLink to="/sharing">sharing</NavLink></li>
+                <li><NavLink to="/admin">admin</NavLink></li>
                 <li><NavLink to="/contributing">contributing</NavLink></li>
+                <li><NavLink to="/settings">settings</NavLink></li>
             </ul>
-            <div className="content">
+            <div style={{margin:'2%'}}>
                 <Route exact path="/" component={Home}/>
                 <Route path="/creating" component={Creating}/>
             </div>
