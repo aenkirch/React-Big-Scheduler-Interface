@@ -12,7 +12,9 @@ class CreatingMatiere extends Component{
             champNomMatiere: '',
             champLabelMatiere: '',
             champCouleurMatiere: '#fff',
-            selectedModule: {}
+            selectedModule: {},
+            champThemeMatiere: '',
+            champTypeMatiere: ''
         }
     }
 
@@ -23,7 +25,10 @@ class CreatingMatiere extends Component{
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    createMatiere = () => {this.props.createMatiere(this.state.selectedModule.value, this.state.champNomMatiere, this.state.champLabelMatiere, this.state.champCouleurMatiere)};
+    createMatiere = () => {
+        let state = this.state;
+        this.props.createMatiere(state.selectedModule.value, state.champNomMatiere, state.champLabelMatiere, state.champCouleurMatiere, state.champThemeMatiere, state.champTypeMatiere)
+    };
 
     render(){
         return(
@@ -47,6 +52,14 @@ class CreatingMatiere extends Component{
                 <Form.Field>
                     <label>Couleur de la matière</label>
                     <CompactPicker color={this.state.champCouleurMatiere} onChangeComplete={(e) => {this.setState({champCouleurMatiere: e.hex})}}/>
+                </Form.Field>
+                <Form.Field>
+                    <label>Thème de la matière</label>
+                    <input type="text" value={this.state.champThemeMatiere} onChange={e => this.handleChange(e)} name="champThemeMatiere" placeholder='Thème de la matière' />
+                </Form.Field>
+                <Form.Field>
+                    <label>Type d'enseignement de la matière</label>
+                    <input type="text" value={this.state.champTypeMatiere} onChange={e => this.handleChange(e)} name="champTypeMatiere" placeholder="Type d'enseignement de la matière" />
                 </Form.Field>
                 <Button onClick={() => this.createMatiere()}>Valider</Button>
             </Form>

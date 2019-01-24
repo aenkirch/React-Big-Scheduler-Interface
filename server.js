@@ -169,7 +169,7 @@ app.post('/api/createFormation', (req, res) => {
 
 // Création de formation
 app.post('/api/createMatiere', (req, res) => {
-    var requete = mysql.format('INSERT into matiere VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [req.body.id_mat, req.body.id_ue, 1, 1, req.body.nom, req.body.label, 0, req.body.couleur, '', '']);
+    var requete = mysql.format('INSERT into matiere VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [req.body.id_mat, req.body.id_ue, 1, 1, req.body.nom, req.body.label, 0, req.body.couleur, req.body.theme, req.body.type]);
     db.query(requete, (err, result, fields) => {
         if (err) throw err;
         res.send( JSON.parse( JSON.stringify(result) )   )

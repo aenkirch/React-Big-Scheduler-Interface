@@ -91,7 +91,7 @@ export function createModule(selectedFormationId, champNomModule, champLabelModu
     }
 }
 
-export function createMatiere(selectedModuleId, champNomMatiere, champLabelMatiere, champCouleur){
+export function createMatiere(selectedModuleId, champNomMatiere, champLabelMatiere, champCouleur, champTheme, champType){
     return function(dispatch){
         return fetch('/api/getNbMatieres')
         .then(response => response.json())
@@ -101,7 +101,9 @@ export function createMatiere(selectedModuleId, champNomMatiere, champLabelMatie
                 id_ue: selectedModuleId,
                 nom: champNomMatiere,
                 label: champLabelMatiere,
-                couleur: champCouleur
+                couleur: champCouleur,
+                theme: champTheme,
+                type: champType
             }).then((res) => {
                 toast.success("Matière "+champNomMatiere+" créée avec succès !");
                 dispatch({type: ''});
