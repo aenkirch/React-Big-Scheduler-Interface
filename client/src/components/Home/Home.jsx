@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import MyScheduler from "./MyScheduler";
 import HomeSelects from "./HomeSelects";
-import EventPanel from "./EventPanel";
+import EventPanel from "./EventPanel/EventPanel";
 
 const mapStateToProps = state => {
     return { eventInfos: state.eventInfos }
