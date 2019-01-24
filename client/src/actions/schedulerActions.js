@@ -6,6 +6,8 @@ import { PREV_CLICK, NEXT_CLICK,
 import store from "../store/index";
 import axios from 'axios';
 import moment from 'moment';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function prevClick(){
     return ({type: PREV_CLICK})
@@ -23,8 +25,24 @@ export function onSelectDate(schedulerData, date){
     return ({type: ON_SELECT_DATE, payload: date})
 }
 
+function checkForConflict(schedulerEvents, eventToSaveStart, eventToSaveEnd, eventToSaveId){
+    for (let i = 0 ; i < schedulerEvents.length ; i++){
+        if ( (! (new Date(schedulerEvents[i].start) >= new Date(eventToSaveEnd) || new Date(schedulerEvents[i].end) <= new Date(eventToSaveStart)))) 
+            {
+            return false;
+        }
+    }
+    return true;
+}
+
 export function moveEvent(schedulerData, event, slotId, slotName, start, end){
-    return ({type: MOVE_EVENT, payload: {schedulerData, event, slotId, slotName, start, end}})
+    if (checkForConflict(schedulerData.events, start, end, slotId)){
+        return ({type: MOVE_EVENT, payload: {schedulerData, event, slotId, slotName, start, end}})
+    }
+    else{
+        toast.error("Erreur : plusieurs évènements se déroulent en même temps !");
+        return ({type: ''})
+    }
 }
 
 export function updateEventStart(schedulerData, event, newStart){
