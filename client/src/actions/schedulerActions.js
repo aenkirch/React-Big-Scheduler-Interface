@@ -102,7 +102,7 @@ export function eventClicked(schedulerData, event) {
                 let prof = resProf.data[0].genre + '. ' +  resProf.data[0].nom + ' ' + resProf.data[0].prenom;
                 let themes = resMatiereInfos.data[0].themes;
                 let typeEns = resMatiereInfos.data[0].typeEns;
-                dispatch({ type: EVENT_INFOS_LOADED, payload: { prof, themes, typeEns } })
+                dispatch({ type: EVENT_INFOS_LOADED, payload: { event, prof, themes, typeEns } })
             })
         })
     }
