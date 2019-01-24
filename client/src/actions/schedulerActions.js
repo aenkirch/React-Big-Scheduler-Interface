@@ -2,7 +2,7 @@ import { PREV_CLICK, NEXT_CLICK,
     ON_VIEW_CHANGE, ON_SELECT_DATE,
     LOAD_AGENDA_DATA_AFTER_EDIT, 
     MOVE_EVENT, UPDATE_EVENT_END,
-    UPDATE_EVENT_START} from "../constants/index";
+    UPDATE_EVENT_START, EVENT_INFOS_LOADED} from "../constants/index";
 import store from "../store/index";
 import axios from 'axios';
 import moment from 'moment';
@@ -68,6 +68,23 @@ export function deleteEvent(schedulerData, event){
                     element.end = moment.unix(element.end).format("YYYY-MM-DD HH:mm:ss");
                 })
                 dispatch({ type: LOAD_AGENDA_DATA_AFTER_EDIT, payload: {events: resEvents.data} })
+            })
+        })
+    }
+}
+
+export function eventClicked(schedulerData, event) {
+    return function(dispatch){
+        return axios.post('/api/getProf', {
+            id_prof: event.id_prof
+        }).then((resProf) => {
+            return axios.post('/api/getMatiereInfos', {
+                id_mat: event.id_mat
+            }).then((resMatiereInfos) => {
+                let prof = resProf.data[0].genre + '. ' +  resProf.data[0].nom + ' ' + resProf.data[0].prenom;
+                let themes = resMatiereInfos.data[0].themes;
+                let typeEns = resMatiereInfos.data[0].typeEns;
+                dispatch({ type: EVENT_INFOS_LOADED, payload: { prof, themes, typeEns } })
             })
         })
     }

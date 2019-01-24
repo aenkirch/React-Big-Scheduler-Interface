@@ -1,6 +1,7 @@
 
 import { LOAD_AGENDA_DATA, ALL_FORMATIONS_LOADED, 
-    ALL_GROUPES_LOADED } from "../constants/index";
+    ALL_GROUPES_LOADED, 
+    EVENT_INFOS_ENDED} from "../constants/index";
 import axios from 'axios';
 import moment from 'moment';
 
@@ -41,5 +42,11 @@ export function getAllGroupes(idFormation) {
         .catch((err) => {
             throw err;
         })
+    }
+}
+
+export function closeEventInfos() {
+    return function(dispatch){
+        dispatch({ type: EVENT_INFOS_ENDED })
     }
 }

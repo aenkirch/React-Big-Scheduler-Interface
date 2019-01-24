@@ -5,6 +5,7 @@ body {
   padding-right: 20px;
   margin: 0;
   font-family: sans-serif;
+  overflow:hidden;
 }
 h1, h2, p, ul, li {
   font-family: sans-serif;
@@ -40,4 +41,8 @@ ul.header li a {
 .active {
   background-color: rgb(127, 158, 173);
   color: #FFF;
+}
+
+.eventInfos{
+  cursor: pointer;
 }

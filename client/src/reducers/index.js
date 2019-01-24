@@ -5,7 +5,7 @@ import { ALL_GROUPES_LOADED, ALL_FORMATIONS_LOADED,
     LOAD_AGENDA_DATA_AFTER_EDIT,
     MOVE_EVENT, UPDATE_EVENT_END,
     UPDATE_EVENT_START, ALL_MODULES_LOADED, ALL_MATIERES_LOADED,
-    ALL_PROFS_LOADED, ALL_SALLES_LOADED} from "../constants/index";
+    ALL_PROFS_LOADED, ALL_SALLES_LOADED, EVENT_INFOS_LOADED, EVENT_INFOS_ENDED} from "../constants/index";
 import { SchedulerData, ViewTypes } from 'react-big-scheduler'
  
 const schedulerDataReducer = (state = new SchedulerData('2018-10-17', ViewTypes.Week), action) => {
@@ -141,6 +141,17 @@ const idGroupeReducer = (state = '', action) => {
       return state;
   }
 };
+
+const eventInfosReducer = (state = {}, action) => {
+  switch (action.type) {
+    case EVENT_INFOS_LOADED:
+      return action.payload;
+    case EVENT_INFOS_ENDED:
+      return {};
+    default:
+      return state;
+  }
+};
  
 const rootReducer = combineReducers({
   schedulerData: schedulerDataReducer,
@@ -151,7 +162,8 @@ const rootReducer = combineReducers({
   allProfs: allProfsReducer,
   allSalles: allSallesReducer,
   idGroupe: idGroupeReducer,
-  idFormation: idFormationReducer
+  idFormation: idFormationReducer,
+  eventInfos: eventInfosReducer
 })
  
 export default rootReducer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Scheduler from 'react-big-scheduler';
 import withDragDropContext from '../../withDnDContext';
-import { prevClick, nextClick, onViewChange, onSelectDate, saveEvent, deleteEvent, moveEvent, updateEventEnd, updateEventStart } from '../../actions/schedulerActions';
+import { prevClick, nextClick, onViewChange, onSelectDate, saveEvent, deleteEvent, moveEvent, updateEventEnd, updateEventStart, eventClicked } from '../../actions/schedulerActions';
 import { connect } from "react-redux";
 import 'react-big-scheduler/lib/css/style.css';
 
@@ -22,6 +22,7 @@ export class ConnectedScheduler extends React.Component {
     moveEvent = (schedulerData, event, slotId, slotName, start, end) => { this.props.moveEvent(schedulerData, event, slotId, slotName, start, end) }
     updateEventStart = (schedulerData, event, newStart) => { this.props.updateEventStart(schedulerData, event, newStart) }
     updateEventEnd = (schedulerData, event, newEnd) => { this.props.updateEventEnd(schedulerData, event, newEnd) }
+    eventClicked = (schedulerData, event) => {this.props.eventClicked(schedulerData, event)}
 
     render(){
         return(
@@ -32,6 +33,7 @@ export class ConnectedScheduler extends React.Component {
                     nextClick={this.nextClick}
                     onViewChange={this.onViewChange}
                     onSelectDate={this.onSelectDate}
+                    eventItemClick={this.eventClicked}
                     viewEventClick={this.op1}           
                     viewEventText="Sauvegarder"
                     viewEvent2Click={this.op2}
@@ -45,6 +47,6 @@ export class ConnectedScheduler extends React.Component {
     }
 }
 
-const MyScheduler = connect(mapStateToProps, { prevClick, nextClick, onViewChange, onSelectDate, saveEvent, deleteEvent, moveEvent, updateEventEnd, updateEventStart })(ConnectedScheduler)
+const MyScheduler = connect(mapStateToProps, { prevClick, nextClick, onViewChange, onSelectDate, saveEvent, deleteEvent, moveEvent, updateEventEnd, updateEventStart, eventClicked })(ConnectedScheduler)
 
 export default withDragDropContext(MyScheduler)

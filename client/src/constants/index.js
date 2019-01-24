@@ -2,6 +2,7 @@
 export const LOAD_AGENDA_DATA = "LOAD_AGENDA_DATA";
 export const ALL_GROUPES_LOADED = "ALL_GROUPES_LOADED";
 export const ALL_FORMATIONS_LOADED = "ALL_FORMATIONS_LOADED";
+export const EVENT_INFOS_ENDED = "EVENT_INFOS_ENDED";
 
 
 //  related to the scheduler 
@@ -13,6 +14,7 @@ export const LOAD_AGENDA_DATA_AFTER_EDIT = "LOAD_AGENDA_DATA_AFTER_EDIT";
 export const MOVE_EVENT = "MOVE_EVENT";
 export const UPDATE_EVENT_START = "UPDATE_EVENT_START";
 export const UPDATE_EVENT_END = "UPDATE_EVENT_END";
+export const EVENT_INFOS_LOADED = "EVENT_INFOS_LOADED";
 
 //  related to creating section
 export const ALL_MODULES_LOADED = "ALL_MODULES_LOADED";
