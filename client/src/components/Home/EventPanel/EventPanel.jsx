@@ -8,7 +8,7 @@ class EventPanel extends Component{
 
     render(){
         return (
-            <div style={{marginLeft: '25%', marginRight: '25%'}}>
+            <div style={{marginLeft: '30%', marginRight: '30%'}}>
                 <Segment>
                     <Grid columns={2}>
                         <Grid.Column>

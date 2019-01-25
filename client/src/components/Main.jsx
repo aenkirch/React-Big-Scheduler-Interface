@@ -21,11 +21,12 @@ class Main extends Component {
                 <li><NavLink to="/contributing">contributing</NavLink></li>
                 <li><NavLink to="/settings">settings</NavLink></li>
             </ul>
-            <div style={{margin:'2%'}}>
+            <div style={{margin:'2%', marginTop: '3%'}}>
                 <Route exact path="/" component={Home}/>
                 <Route path="/creating" component={Creating}/>
             </div>
             <ToastContainer />
+            <div class="footer">Checkout our code on <a target="_blank" rel="noopener noreferrer" href="http://www.github.com/aenkirch" >GitHub</a> <Icon name='code'/></div>
           </div>
         </HashRouter>
       );

@@ -6,11 +6,12 @@ import { ALL_GROUPES_LOADED, ALL_FORMATIONS_LOADED,
     MOVE_EVENT, UPDATE_EVENT_END,
     UPDATE_EVENT_START, ALL_MODULES_LOADED, ALL_MATIERES_LOADED,
     ALL_PROFS_LOADED, ALL_SALLES_LOADED, EVENT_INFOS_LOADED, EVENT_INFOS_ENDED} from "../constants/index";
-import { SchedulerData, ViewTypes } from 'react-big-scheduler'
+import { SchedulerData, ViewTypes } from 'react-big-scheduler';
+import config from "../schedulerConfig";
  
-const schedulerDataReducer = (state = new SchedulerData('2018-10-17', ViewTypes.Week), action) => {
+const schedulerDataReducer = (state = new SchedulerData('2018-10-17', ViewTypes.Week, false, false, config), action) => {
 
-  const tempScheduler = new SchedulerData(state.startDate, state.viewType);
+  const tempScheduler = new SchedulerData(state.startDate, state.viewType, false, false, config);
  
   switch (action.type) {
     case LOAD_AGENDA_DATA:

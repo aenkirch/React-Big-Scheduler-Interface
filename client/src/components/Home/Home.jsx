@@ -16,7 +16,9 @@ class Home extends Component{
             <div>
                 <MyScheduler />
                 <HomeSelects />
-                {this.props.eventInfos.prof ? <EventPanel event={eventInfos.event} prof={eventInfos.prof.toString()} themes={eventInfos.themes} typeEns={eventInfos.typeEns} /> : null}
+                <div style={{marginTop: '-3%'}}>
+                    {this.props.eventInfos.prof ? <EventPanel event={eventInfos.event} prof={eventInfos.prof.toString()} themes={eventInfos.themes} typeEns={eventInfos.typeEns} /> : null}
+                </div>
             </div>
         )
     }
