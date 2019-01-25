@@ -26,7 +26,7 @@ class Main extends Component {
                 <Route path="/creating" component={Creating}/>
             </div>
             <ToastContainer />
-            <div class="footer">Checkout our code on <a target="_blank" rel="noopener noreferrer" href="http://www.github.com/aenkirch" >GitHub</a> <Icon name='code'/></div>
+            <div className="footer">Checkout our code on <a target="_blank" rel="noopener noreferrer" href="http://www.github.com/aenkirch" >GitHub</a> <Icon name='code'/></div>
           </div>
         </HashRouter>
       );

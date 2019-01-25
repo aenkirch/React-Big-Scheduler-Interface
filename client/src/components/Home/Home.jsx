@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import MyScheduler from "./MyScheduler";
 import HomeSelects from "./HomeSelects";
 import EventPanel from "./EventPanel/EventPanel";
+import WelcomeAnimation from "./WelcomeAnimation";
 
 const mapStateToProps = state => {
-    return { eventInfos: state.eventInfos }
+    return { eventInfos: state.eventInfos, schedulerData: state.schedulerData }
 };
 
 class Home extends Component{
@@ -16,6 +17,9 @@ class Home extends Component{
             <div>
                 <MyScheduler />
                 <HomeSelects />
+                <div style={{marginTop: '-3%'}}>
+                    {this.props.schedulerData.resources[0] ? null : <WelcomeAnimation />}
+                </div>
                 <div style={{marginTop: '-3%'}}>
                     {this.props.eventInfos.prof ? <EventPanel event={eventInfos.event} prof={eventInfos.prof.toString()} themes={eventInfos.themes} typeEns={eventInfos.typeEns} /> : null}
                 </div>

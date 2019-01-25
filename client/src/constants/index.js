@@ -4,7 +4,6 @@ export const ALL_GROUPES_LOADED = "ALL_GROUPES_LOADED";
 export const ALL_FORMATIONS_LOADED = "ALL_FORMATIONS_LOADED";
 export const EVENT_INFOS_ENDED = "EVENT_INFOS_ENDED";
 
-
 //  related to the scheduler 
 export const PREV_CLICK = "PREV_CLICK";
 export const NEXT_CLICK = "NEXT_CLICK";
