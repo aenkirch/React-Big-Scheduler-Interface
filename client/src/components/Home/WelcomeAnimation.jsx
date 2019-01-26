@@ -5,7 +5,7 @@ export default class WelcomeAnimation extends Component {
 
     componentDidMount() {
       const options = {
-            strings: ['', 'Welcome on your Scheduler.'],
+            strings: ['', 'Welcome to your Scheduler.'],
             typeSpeed: 50,
             backSpeed: 50
       };
