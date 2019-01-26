@@ -39,7 +39,7 @@ This project was developed during a few months as a school project for Paris Des
 
 ## Setup
 
-First, make sure you have installed MySQL and Node.JS on your computer.
+First, make sure you run a MySQL server (use Wamp for example on Windows) on your computer and make sure Node.JS is installed.
 If so : now install yarn by typing `npm install yarn -g`.
 
 Now, go into the project folder and type `yarn install` to install the missing dependencies of the server side of the project, type `yarn install` again in the `client` folder to install the missing dependencies of the client side of the project.
