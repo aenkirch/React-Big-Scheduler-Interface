@@ -13,7 +13,7 @@ class Main extends Component {
     render() {
       return (
         <HashRouter>
-          <div style={{margin: '1%'}}>
+          <div style={{margin: '1%', marginRight: '7%', marginLeft: '7%'}}>
             <ul className="header">
                 <li><NavLink exact to="/"><Icon name='calendar alternate' size='big'/></NavLink></li>
                 <li><NavLink to="/creating">creating</NavLink></li>
@@ -21,7 +21,7 @@ class Main extends Component {
                 <li><NavLink to="/contributing">contributing</NavLink></li>
                 <li><NavLink to="/settings">settings</NavLink></li>
             </ul>
-            <div style={{margin:'2%', marginTop: '3%'}}>
+            <div style={{margin:'3%', marginTop: '3.5%'}}>
                 <Route exact path="/" component={Home}/>
                 <Route path="/creating" component={Creating}/>
             </div>

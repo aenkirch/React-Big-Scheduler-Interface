@@ -17,10 +17,10 @@ class Home extends Component{
             <div>
                 <MyScheduler />
                 <HomeSelects />
-                <div style={{marginTop: '-3%'}}>
+                <div style={{marginTop: '-4%'}}>
                     {this.props.schedulerData.resources[0] ? null : <WelcomeAnimation />}
                 </div>
-                <div style={{marginTop: '-3%'}}>
+                <div style={{marginTop: '-4%'}}>
                     {this.props.eventInfos.prof ? <EventPanel event={eventInfos.event} prof={eventInfos.prof.toString()} themes={eventInfos.themes} typeEns={eventInfos.typeEns} /> : null}
                 </div>
             </div>

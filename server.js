@@ -1,7 +1,6 @@
 
 const express = require('express');
 const mysql = require('mysql');
-const execSQL = require('exec-sql'); //nécessaire pour la création de la BD et l'import du fichier SQL
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 5002;
@@ -15,7 +14,8 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'password',
-    socketPath: '/var/run/mysqld/mysqld.sock',
+    socketPath: '/var/run/mysqld/mysqld.sock', //   only on Linux systems 
+    port: 3306,
     database: 'nodemysql_test'
 });
 
@@ -137,6 +137,7 @@ app.get('/api/fillFormUE', (req, res) => {
     })
 })
 
+// Permet d'obtenir le nb de groupes pour connaître l'ID qu'on va donner au nouveau
 app.get('/api/getNbGroupes', (req, res) => {
     db.query('SELECT COUNT(id_grpe) FROM groupe', (err, result, fields) => {
         if (err) throw err;
@@ -144,6 +145,7 @@ app.get('/api/getNbGroupes', (req, res) => {
     });
 })
 
+// de même que pour /api/getNbGroupes
 app.get('/api/getNbCreneaux', (req, res) => {
     db.query('SELECT COUNT(id_creneau) FROM creneau', (err, result, fields) => {
         if (err) throw err;
@@ -151,6 +153,7 @@ app.get('/api/getNbCreneaux', (req, res) => {
     });
 })
 
+// de même que pour /api/getNbGroupes
 app.get('/api/getNbMatieres', (req, res) => {
     db.query('SELECT COUNT(id_mat) FROM matiere', (err, result, fields) => {
         if (err) throw err;

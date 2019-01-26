@@ -1,7 +1,7 @@
 {
-  "name": "projet_web_lpiot",
-  "version": "1.0.0",
-  "description": "Projet fait dans le cadre de la LP IOT Descartes",
+  "name": "React-Big-Scheduler-Interface",
+  "version": "0.1.0",
+  "description": "You're on the server side of the project",
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "exec-sql": "^2.0.2",
     "express": "^4.16.4",
     "mysql": "^2.16.0"
   },

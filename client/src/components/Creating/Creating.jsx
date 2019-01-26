@@ -12,7 +12,7 @@ class Creating extends Component{
 
     render() {
         return (
-            <div>
+            <div style={{marginLeft: '5%', marginRight: '5%'}}>
                 <HashRouter>
                         <Grid>
 

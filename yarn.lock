@@ -27,11 +27,6 @@ bignumber.js@4.1.0:
   resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-4.1.0.tgz#db6f14067c140bd46624815a7916c92d9b6c24b1"
   integrity sha512-eJzYkFYy9L4JzXsbymsFn3p54D+llV27oTQ+ziJG7WFRheJcNZilgVXMG0LoZtlQSKBsJdWtLFqOD0u+U0jZKA==
 
-bluebird@^3.5.0:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
-  integrity sha512-/qKPUQlaW1OyR51WeCPBvRnAlnZFUJkCSG5HzGnuIqhgyJtF+T94lFnn33eiazjRm2LAHVy2guNnaq48X9SJuw==
-
 body-parser@1.18.3, body-parser@^1.18.3:
   version "1.18.3"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.18.3.tgz#5b292198ffdd553b3a0f20ded0592b956955c8b4"
@@ -177,15 +172,6 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
-
-exec-sql@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/exec-sql/-/exec-sql-2.0.2.tgz#295eb5f5998db47bde1d9e48a1162502aa902b41"
-  integrity sha1-KV619ZmNtHveHZ5IoRYlAqqQK0E=
-  dependencies:
-    bluebird "^3.5.0"
-    mysql "^2.13.0"
-    nimble "0.0.2"
 
 express@^4.16.4:
   version "4.16.4"
@@ -367,7 +353,7 @@ ms@2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
   integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
 
-mysql@^2.13.0, mysql@^2.16.0:
+mysql@^2.16.0:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/mysql/-/mysql-2.16.0.tgz#b23b22ab5de44fc2d5d32bd4f5af6653fc45e2ba"
   integrity sha512-dPbN2LHonQp7D5ja5DJXNbCLe/HRdu+f3v61aguzNRQIrmZLOeRoymBYyeThrR6ug+FqzDL95Gc9maqZUJS+Gw==
@@ -381,11 +367,6 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
   integrity sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
-
-nimble@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/nimble/-/nimble-0.0.2.tgz#8225c67f6b6c53ae06e35aa577f9a3ef05db09dc"
-  integrity sha1-giXGf2tsU64G41qld/mj7wXbCdw=
 
 normalize-package-data@^2.3.2:
   version "2.4.0"

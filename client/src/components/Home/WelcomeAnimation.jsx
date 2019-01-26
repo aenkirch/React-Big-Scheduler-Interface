@@ -15,7 +15,7 @@ export default class WelcomeAnimation extends Component {
 
     render(){
         return (
-            <div style={{ marginLeft: '11%', marginTop: '10%' }}>
+            <div style={{ marginLeft: '12%', marginTop: '12%' }}>
                 <span
                     className='zoneWelcomeMsg'
                     style={{ whiteSpace: 'pre' }}
