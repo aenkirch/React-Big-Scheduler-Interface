@@ -30,9 +30,9 @@ This project was developed during a few months as a school project for Paris Des
 
 ## Technologies used
 
-**Back-end** : Node.JS
-**Front-end** : React w/ Redux
-**Database** : MySQL
+**Back-end** : Node.JS <br />
+**Front-end** : React w/ Redux <br />
+**Database** : MySQL <br />
 
 ---
 
@@ -90,7 +90,7 @@ Thanks to StephenChou1017 for the scheduler component he made and for his help d
 
 Thanks to our teacher Jean-Michel Ilié for giving us such a project which allowed us to learn a lot of the technologies we used to develop this project !
 
-And of course, thanks to every person which helped me during this project and to every person who developed a package I used in this project, it's all because of you ;)
+And of course, thanks to every person who helped me during this project and to every person who developed a package I used in this project, it's all because of you ;)
 
 ---
 
