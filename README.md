@@ -1,6 +1,6 @@
 React-Big-Scheduler Interface
 ============
-[![Current Version](https://img.shields.io/badge/version-0.1-green.svg)](https://github.com/IgorAntun/node-chat) [![Live Demo](https://img.shields.io/badge/demo-offline-red.svg)](https://igorantun.com/chat)
+[![Current Version](https://img.shields.io/badge/version-0.1-green.svg)](https://github.com/aenkirch/React-Big-Scheduler-Interface) [![Live Demo](https://img.shields.io/badge/demo-offline-red.svg)]()
 
 This is a React/Node.JS app which uses the <a href="https://github.com/StephenChou1017/react-big-scheduler">React-Big-Scheduler project</a> in order to display a scheduler related to a university class which you can select in a list : it also offers some more features like adding events on it, etc...
 
@@ -9,7 +9,7 @@ This is a React/Node.JS app which uses the <a href="https://github.com/StephenCh
 ---
 ## Some context
 
-This project was developed during a few months as a scholar project for Paris Descartes University : therefore, the database used on the demo was provided by our teacher.
+This project was developed during a few months as a school project for Paris Descartes University : therefore, the database used on the demo was provided by our teacher.
 
 ![Chat Preview](./docResources/bigLogoIUT.jpg)
 
