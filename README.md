@@ -43,7 +43,7 @@ If so : now install yarn by typing `npm install yarn`.
 
 Now, go into the project folder and type `yarn install` to install the missing dependencies of the server side of the project, type `yarn install` again in the `client` folder to install the missing dependencies of the client side of the project.
 
-Then, install the database by importing the `.sql` file in the project folder, go into the `server.js` file and at `line 13`, type the username, password, and port you gave to your database.
+Then, install the database by importing the `.sql` file in the project folder, go into the `server.js` file and at `line 13`, type the username, password, the name, and the port you gave to your database.
 
 ```
     // Create connection
@@ -90,7 +90,7 @@ Thanks to StephenChou1017 for the scheduler component he made and for his help d
 
 Thanks to our teacher Jean-Michel Ilié for giving us such a project which allowed us to learn a lot of the technologies we used to develop this project !
 
-And of course, thanks to every person who helped me during this project and to every person who developed a package I used in this project, it's all because of you ;)
+And of course, thanks to every person who helped us during this project and to every person who developed a package we used in this project, it's all because of you ;)
 
 ---
 
