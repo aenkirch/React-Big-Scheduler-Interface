@@ -88,7 +88,7 @@ The project uses an **MVC** architectural pattern :
     <li>Controller : the server side of the project (/ folder) and acts as a middleware between the Model and the View of the project</li>
 </ul>
 
-<img src="./docResources/schemaMVC.png" alt="schemaMVC" width="700"/>
+![Schema MVC](./docResources/schemaMVC.png)
 
 ---
 
