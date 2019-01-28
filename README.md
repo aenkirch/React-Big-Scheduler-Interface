@@ -100,7 +100,7 @@ The project uses an **MVC** architectural pattern :
 
 ## Credits
 
-Thanks to <a href="https://github.com/StephenChou1017">StephenChou1017</a> for the scheduler component he made and for his help during this project development !
+Thanks to <a target="_blank" href="https://github.com/StephenChou1017" rel="noopener noreferrer">StephenChou1017</a> for the scheduler component he made and for his help during this project development !
 
 Thanks to our teacher Jean-Michel Ilié for giving us such a project which allowed us to learn a lot of the technologies we used to develop this project !
 
