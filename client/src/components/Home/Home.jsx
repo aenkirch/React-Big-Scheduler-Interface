@@ -9,7 +9,7 @@ const mapStateToProps = state => {
     return { eventInfos: state.eventInfos, schedulerData: state.schedulerData }
 };
 
-class Home extends Component{
+class Home extends Component{       // BUG GRAPHIQUE SUR L'EDIT DE CRENEAU ! POURQUOI ?
 
     render(){
         let eventInfos = this.props.eventInfos;

@@ -79,6 +79,19 @@ Files opened on <strong>client side </strong> offer an interface in order for th
 
 ---
 
+## Architecture of the project
+
+The project uses an **MVC** architectural pattern : 
+<ul>
+    <li>Model : it's the database which was provided by our teacher, it's connected to the controller</li>
+    <li>View : what the user sees when he's accessing the website, it's the React code you can see in the /client folder</li>
+    <li>Controller : the server side of the project (/ folder) and acts as a middleware between the Model and the View of the project</li>
+</ul>
+
+<img src="./docResources/schemaMVC.png" alt="schemaMVC" width="700"/>
+
+---
+
 ## Some errors fixes
 
 **EADDRINUSE** : **killall node** will fix this error, may happen if you opened unintentionally two instances of the project
