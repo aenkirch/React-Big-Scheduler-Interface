@@ -1,21 +1,15 @@
-# react-big-scheduler-demo
+# Front-End part (client side)
 
-It's easy to create a react-big-scheduler demo with `create-react-app` and `yarn`. Install `create-react-app` and `yarn` first if you haven't.
+We will mainly see here things that could be useful for you to understand quicker how was the client side of the project made and thought.
 
-```
-$ npm install -g create-react-app yarn
-```
+---
 
-Create the demo app and install `react-big-scheduler`:
+## How is a React/Redux project made ?
 
-```
-$ create-react-app react-big-scheduler-demo
-$ cd react-big-scheduler-demo
-$ yarn add react-big-scheduler
-```
-
-Copy `src/Basic.js` and `src/withDnDContext.js` from this repo to the `src` folder, and replace all the `App` words with `Basic` in `src/index.js`. Then start the demo:
-
-```
-$ yarn start
-```
+You'll see in this project that the `src/` folder has itself folders :
+<ul>
+    <li><strong>components</strong>: it mainly contains the HTML elements that will be displayed for the user to see
+    <li><strong>actions</strong>: it contains functions which communicates with the <strong>API</strong> (server side of the project) and then pass the datas they get to the reducers
+    <li><strong>reducers</strong>: it contains the state which will be used by the whole app (arrays, objects, etc...)
+    <li><strong>constants</strong>: as its name suggests, contains constants which describes what modifications are made on the state when actions are triggered
+</ul>

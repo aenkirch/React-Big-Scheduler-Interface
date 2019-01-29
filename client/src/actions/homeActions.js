@@ -1,7 +1,7 @@
 
 import { LOAD_AGENDA_DATA, ALL_FORMATIONS_LOADED, 
     ALL_GROUPES_LOADED, 
-    EVENT_INFOS_ENDED} from "../constants/index";
+    EVENT_INFOS_ENDED } from "../constants/index";
 import axios from 'axios';
 import moment from 'moment';
 
@@ -17,7 +17,11 @@ export function loadAgendaData(idFormation, idGroupe) {
                     element.start = moment.unix(element.start).format("YYYY-MM-DD HH:mm:ss");
                     element.end = moment.unix(element.end).format("YYYY-MM-DD HH:mm:ss");
                 })
-                dispatch({ type: LOAD_AGENDA_DATA, payload: {resources: resResources.data, events: resEvents.data, idFormation: idFormation, idGroupe: idGroupe} })
+                return axios.post('/api/getPeriodes', {
+                    idFormation: idFormation
+                }).then((resPeriodes) => {  
+                    dispatch({ type: LOAD_AGENDA_DATA, payload: {resources: resResources.data, events: resEvents.data, idFormation: idFormation, idGroupe: idGroupe, periodes: resPeriodes.data} })
+                })
             })
         })
     }

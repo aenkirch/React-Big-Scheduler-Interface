@@ -5,7 +5,8 @@ import { ALL_GROUPES_LOADED, ALL_FORMATIONS_LOADED,
     LOAD_AGENDA_DATA_AFTER_EDIT,
     MOVE_EVENT, UPDATE_EVENT_END,
     UPDATE_EVENT_START, ALL_MODULES_LOADED, ALL_MATIERES_LOADED,
-    ALL_PROFS_LOADED, ALL_SALLES_LOADED, EVENT_INFOS_LOADED, EVENT_INFOS_ENDED} from "../constants/index";
+    ALL_PROFS_LOADED, ALL_SALLES_LOADED, EVENT_INFOS_LOADED, 
+    EVENT_INFOS_ENDED, SHOW_FIRST_VIEW, SHOW_SECOND_VIEW } from "../constants/index";
 import { SchedulerData, ViewTypes } from 'react-big-scheduler';
 import config from "../schedulerConfig";
  
@@ -91,6 +92,8 @@ const allGroupesReducer = (state = [], action) => {
 
 const allModulesReducer = (state = [], action) => {
   switch (action.type) {
+    case LOAD_AGENDA_DATA:
+      return action.payload.resources
     case ALL_MODULES_LOADED:
       return action.payload;
     default:
@@ -153,7 +156,27 @@ const eventInfosReducer = (state = {}, action) => {
       return state;
   }
 };
- 
+
+const isFirstViewActiveReducer = (state = true, action) => {
+  switch (action.type) {
+    case SHOW_FIRST_VIEW:
+      return true;
+    case SHOW_SECOND_VIEW:
+      return false;
+    default:
+      return state;
+  }
+};
+
+const allPeriodesReducer = (state = [], action) => {
+  switch (action.type) {
+    case LOAD_AGENDA_DATA:
+      return action.payload.periodes;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   schedulerData: schedulerDataReducer,
   allFormations: allFormationsReducer,
@@ -164,7 +187,9 @@ const rootReducer = combineReducers({
   allSalles: allSallesReducer,
   idGroupe: idGroupeReducer,
   idFormation: idFormationReducer,
-  eventInfos: eventInfosReducer
+  eventInfos: eventInfosReducer,
+  isFirstViewActive: isFirstViewActiveReducer,
+  allPeriodes: allPeriodesReducer
 })
  
 export default rootReducer;

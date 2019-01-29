@@ -8,6 +8,12 @@ import CreatingCreneau from "./CreatingCreneau";
 import { Grid, Menu, Segment } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
+/*  
+    * This class is used to call all the Creating class we use for the "Creating" section of the website.
+    * These will mainly be forms to create entries in DB.
+    * 
+*/
+
 class Creating extends Component{
 
     render() {

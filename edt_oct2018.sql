@@ -480,7 +480,7 @@ INSERT INTO `prof_roles` (`id_role`, `objet`, `id_objet`, `bResp`, `id_prof`, `l
 
 DROP TABLE IF EXISTS `promotion`;
 CREATE TABLE `promotion` (
-  `id_promo` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `id_promo` tinyint(4) NOT NULL,
   `id_form` int(11) NOT NULL,
   `num` int(11) NOT NULL,
   `label` text COLLATE utf8_bin NOT NULL

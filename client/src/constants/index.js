@@ -1,3 +1,7 @@
+//  related to main section
+export const SHOW_FIRST_VIEW = "SHOW_FIRST_VIEW";
+export const SHOW_SECOND_VIEW = "SHOW_SECOND_VIEW";
+
 //  related to home section
 export const LOAD_AGENDA_DATA = "LOAD_AGENDA_DATA";
 export const ALL_GROUPES_LOADED = "ALL_GROUPES_LOADED";

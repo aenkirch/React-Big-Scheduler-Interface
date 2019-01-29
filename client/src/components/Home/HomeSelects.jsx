@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Select from 'react-select';
 import { getAllFormations, getAllGroupes, loadAgendaData } from '../../actions/homeActions';
+import { getAllMatieres } from '../../actions/creatingActions';
 
 export class HomeSelects extends Component{
     constructor(){
@@ -15,6 +16,7 @@ export class HomeSelects extends Component{
 
     loadFormGroupe = (event) => {
         this.setState({selectedFormation: event});
+        this.props.getAllMatieres(event.id);
         this.props.getAllGroupes(event.id);
     }
 
@@ -51,4 +53,4 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(mapStateToProps, {getAllFormations, getAllGroupes, loadAgendaData})(HomeSelects)
+export default connect(mapStateToProps, {getAllFormations, getAllGroupes, getAllMatieres, loadAgendaData})(HomeSelects)
