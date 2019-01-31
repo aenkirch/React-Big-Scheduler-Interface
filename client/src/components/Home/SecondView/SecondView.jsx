@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table, Button } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 
 const mapStateToProps = state => {
     return { allMatieres: state.allMatieres }
@@ -23,42 +23,73 @@ class SecondView extends Component{
             })
         })
 
+        let tabNbH = [];
+
+        this.props.allModules.map(module => {
+            tabNbH[module.id] = [];
+            this.props.allPeriodes.map(periode => {
+                tabNbH[module.id][periode.id_period] = [];
+                this.props.allMatieres.map(matiere => {
+                    if (matiere.id_ue === module.id && matiere.id_period === periode.id_period){
+                        tabNbH[module.id][periode.id_period][matiere.id_mat] = matiere.nbH;
+                    }
+                })
+            })
+        })
+
+        console.log(tabNbH);
+
         return (
             <div style={{marginLeft: '10%', marginRight: '10%'}}>
-                <Table celled definition>
+                <Table celled>
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell />
                             {this.props.allPeriodes.map(periode => {
                                 return (
                                     <Table.HeaderCell>
-                                    { new Date(periode.tDeb * 1000).getMonth() + "/" + new Date(periode.tDeb * 1000).getFullYear()
+                                    { "Période " + periode.id_period + " : " +
+                                     new Date(periode.tDeb * 1000).getMonth() + "/" + new Date(periode.tDeb * 1000).getFullYear()
                                     + " - " +
                                      new Date(periode.tFin * 1000).getMonth() + "/" + new Date(periode.tFin * 1000).getFullYear() }
                                     </Table.HeaderCell>
                                 )
                             })}
-                            <Table.HeaderCell>Total</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
                             {this.props.allModules.map(module => {
-                                let sommePeriode = 0;
                                 return (
-                                    <Table.Row>
-                                        <Table.Cell key={module.id}>{module.name}</Table.Cell>
-                                        {this.props.allPeriodes.map(periode => {
-                                            sommePeriode += tabSommeNbH[module.id][periode.id_period];
-                                            return (
-                                                <Table.Cell>
-                                                    <Button compact circular basic color='red' style={{margin: '3%'}}>-</Button>
-                                                    {tabSommeNbH[module.id][periode.id_period]}
-                                                    <Button compact circular basic color='green' style={{margin: '3%'}}>+</Button>
-                                                </Table.Cell>
-                                            )
+                                    <React.Fragment>
+                                        <Table.Row active>
+                                            <Table.Cell key={module.id}>{"Module " + module.id + " : " + module.name}</Table.Cell>
+                                            {this.props.allPeriodes.map(periode => {
+                                                return (
+                                                    <Table.Cell>
+                                                        {tabSommeNbH[module.id][periode.id_period]}
+                                                    </Table.Cell>
+                                                )
+                                            })}
+                                        </Table.Row>
+                                        {this.props.allMatieres.map(matiere => {
+                                            if (matiere.id_ue === module.id){
+                                                console.log(matiere);
+                                                return (
+                                                    <Table.Row>
+                                                        <Table.Cell>{"- " + matiere.label}</Table.Cell>
+                                                        {this.props.allPeriodes.map(periode => {
+                                                            if (matiere.id_period === periode.id_period){
+                                                                return(
+                                                                    <Table.Cell>{tabNbH[module.id][periode.id_period][matiere.id_mat]}</Table.Cell>
+                                                                )
+                                                            }
+                                                            else{ return( <Table.Cell></Table.Cell> ) }
+                                                        })}
+                                                    </Table.Row>
+                                                )
+                                            }
                                         })}
-                                        <Table.Cell>{sommePeriode}</Table.Cell>
-                                    </Table.Row>
+                                    </React.Fragment>
                                 )
                             })}
                     </Table.Body>
