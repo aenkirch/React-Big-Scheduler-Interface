@@ -5,8 +5,8 @@ import thunk from 'redux-thunk';
 
 /*  
     *
-    * Ce fichier nous permet de définir notre reducer comme le fichier qui gardera en lui le state de notre projet
-    * => définition du store
+    * In this file, we define a store where we indicate to our project what is the file that will contains our app state
+    * => creation of the store
     * 
 */
 
