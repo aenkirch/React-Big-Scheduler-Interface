@@ -16,7 +16,7 @@ import config from "../schedulerConfig";
     * 
     * all the state elements can be seen in the const rootReducer (see the end of the file)
     * 
-    * each reducer corresponds to a state element, depending on the type of the action triggered by what action have been triggered by a component,
+    * each reducer corresponds to a state element, depending on the type of the action triggered by the component that triggered it,
     * a certain element of the state will be modified
     * 
 */
