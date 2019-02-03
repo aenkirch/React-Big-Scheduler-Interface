@@ -24,6 +24,7 @@ This project was developed during a few months as a school project for Paris Des
     <li>Confirmation of done action or error if one happened on DB displayed on a toast</li>
     <li>Show infos on events displayed on the scheduler</li>
     <li>Handles the conflict between two events if happening at the same time</li>
+    <li>ALPHA feature - 2 views : two ways to organize your time !</li>
     <li>Single page design </li>
 </ul>
 

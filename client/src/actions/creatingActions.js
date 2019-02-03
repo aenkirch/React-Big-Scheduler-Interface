@@ -5,6 +5,12 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
 
+/*  
+    *
+    * This class contains all the actions that will be needed to create entries in DB (a créneau, a module, etc)
+    * 
+*/
+
 export function getAllModules() {
     return function(dispatch){
         return fetch("/api/getAllModules")

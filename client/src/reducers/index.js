@@ -9,6 +9,17 @@ import { ALL_GROUPES_LOADED, ALL_FORMATIONS_LOADED,
     EVENT_INFOS_ENDED, SHOW_FIRST_VIEW, SHOW_SECOND_VIEW } from "../constants/index";
 import { SchedulerData, ViewTypes } from 'react-big-scheduler';
 import config from "../schedulerConfig";
+
+/*  
+    *
+    * This file contains the state of the app :
+    * 
+    * all the state elements can be seen in the const rootReducer (see the end of the file)
+    * 
+    * each reducer corresponds to a state element, depending on the type of the action triggered by what action have been triggered by a component,
+    * a certain element of the state will be modified
+    * 
+*/
  
 const schedulerDataReducer = (state = new SchedulerData('2018-10-17', ViewTypes.Week, false, false, config), action) => {
 

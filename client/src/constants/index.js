@@ -1,3 +1,9 @@
+/*  
+    *
+    * Here are constants corresponding to the different types of actions that can be made on the state elements
+    * 
+*/
+
 //  related to main section
 export const SHOW_FIRST_VIEW = "SHOW_FIRST_VIEW";
 export const SHOW_SECOND_VIEW = "SHOW_SECOND_VIEW";

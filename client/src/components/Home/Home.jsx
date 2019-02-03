@@ -7,13 +7,20 @@ import EventPanel from "./EventPanel/EventPanel";
 import WelcomeAnimation from "./WelcomeAnimation";
 
 /*  
+    *
     * This class handles which scheduler View is displayed depending on :
     * - if the user has already selected his class
     * - if the user has selected another view
     * 
-    * When user has selected his class, the Welcome animation will be replaced by null
+    * To know if the user has done a certain action, the Home component is connected to the state of our app (using mapStateToProps function) : this way,
+    * it will be constantly listening to the values of the state elements indicating if a user has done a certain action.
     * 
-    * if eventInfos object is filled, the component will display a eventInfos panel
+    * Here are some examples of what the Home Component will be doing depending of the state values it listens to :
+    * 
+    * - when user has selected his class, the Welcome animation will be replaced by null
+    * 
+    * - if eventInfos object is filled, the component will display a eventInfos panel
+    * 
     * 
 */
 

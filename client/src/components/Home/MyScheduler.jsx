@@ -5,6 +5,14 @@ import { prevClick, nextClick, onViewChange, onSelectDate, saveEvent, deleteEven
 import { connect } from "react-redux";
 import 'react-big-scheduler/lib/css/style.css';
 
+/*  
+    *
+    * This class basically is the first view of the scheduler :
+    *   it will control what actions are triggered when user clicks on a certain element of the scheduler first view by calling actions in schedulerActions.jsx
+    * 
+    * 
+*/
+
 const mapStateToProps = state => {
     return {
         viewModel: state.schedulerData 

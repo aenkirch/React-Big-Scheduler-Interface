@@ -5,6 +5,14 @@ import { LOAD_AGENDA_DATA, ALL_FORMATIONS_LOADED,
 import axios from 'axios';
 import moment from 'moment';
 
+/*  
+    *
+    * This class contains all the actions that will be called by the Home component to trigger a certain action of a user interaction
+    * 
+    * for example : this class contains the action that will be made on the state when a user fill the select elements on the home menu (loading agenda data)
+    * 
+*/
+
 export function loadAgendaData(idFormation, idGroupe) {
     return function(dispatch){
         return axios.post('/api/getModule', {

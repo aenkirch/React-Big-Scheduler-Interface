@@ -4,6 +4,12 @@ import Select from 'react-select';
 import { getAllFormations, getAllGroupes, loadAgendaData } from '../../actions/homeActions';
 import { getAllMatieres } from '../../actions/creatingActions';
 
+/*  
+    *
+    * This class basically creates select components that will always be displayed on the home menu for the user to choose his class for example
+    * 
+*/
+
 export class HomeSelects extends Component{
     constructor(){
         super();

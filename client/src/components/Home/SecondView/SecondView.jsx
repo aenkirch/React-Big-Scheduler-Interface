@@ -6,8 +6,13 @@ const mapStateToProps = state => {
     return { allMatieres: state.allMatieres }
 }
 
-class SecondView extends Component{
+//  LIENS OUVERTS AU MOMENT M : REACT DND, REACT SEMANTIC UI (pour les cartes)
 
+// TODO : Faire des cards avec les noms contenus dans thèmes (tables matière) = on parse le JSON
+//        Dans UE, on aura un module (genre Anglais) puis au milieu on aura des cards (genre enseignement voc anglais) et on pourra rajouter ou enlever des cards ?
+
+class SecondView extends Component{
+ 
     render(){
         let tabSommeNbH = [];
 
