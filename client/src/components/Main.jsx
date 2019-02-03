@@ -7,14 +7,14 @@ import {
   } from "react-router-dom";
 import Home from './Home/Home';
 import Creating from './Creating/Creating';
-import {ToastContainer} from 'react-toastify';    // DEMARRER L'ONGLET ADMIN (AVEC AJOUTS PROFS / ETC)
+import {ToastContainer} from 'react-toastify';
 import { Icon, Button } from 'semantic-ui-react';
 import { showFirstView, showSecondView } from '../actions/mainActions';
 
 /*  
     * This class handles the "single page design" of the app using React Router
     * 
-    * It generally runs all the components the app need to run to be started
+    * It runs all the components the app need to run to be started
     * 
 */
 
