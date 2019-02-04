@@ -87,7 +87,7 @@ app.post('/api/getModule', (req, res) => {
 
 // Toutes les matieres
 app.post('/api/getAllMatieres', (req, res) => {
-    var requete = mysql.format("SELECT m.id_mat as value, m.nom as label, m.nbH, m.id_ue, m.id_period from matiere m join uemodule u on m.id_ue=u.id_uemod where u.id_form=?", [req.body.id_formation]);
+    var requete = mysql.format("SELECT m.id_mat as value, m.nom as label, m.nbH, m.id_ue, m.id_period, m.couleur from matiere m join uemodule u on m.id_ue=u.id_uemod where u.id_form=?", [req.body.id_formation]);
     db.query(requete, (err, result, fields) => {
         if (err) throw err;
         res.send( JSON.parse( JSON.stringify(result) )   ) 

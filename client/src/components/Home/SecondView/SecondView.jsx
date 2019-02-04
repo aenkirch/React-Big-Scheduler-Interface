@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table } from 'semantic-ui-react';
+import { Table, Card, Icon } from 'semantic-ui-react';
 
 const mapStateToProps = state => {
     return { allMatieres: state.allMatieres }
@@ -12,22 +12,8 @@ const mapStateToProps = state => {
 //        Dans UE, on aura un module (genre Anglais) puis au milieu on aura des cards (genre enseignement voc anglais) et on pourra rajouter ou enlever des cards ?
 
 class SecondView extends Component{
- 
+
     render(){
-        let tabSommeNbH = [];
-
-        this.props.allModules.map(module => {
-            tabSommeNbH[module.id] = [];
-            this.props.allPeriodes.map(periode => {
-                tabSommeNbH[module.id][periode.id_period] = 0;
-                this.props.allMatieres.map(matiere => {
-                    if (matiere.id_ue === module.id && matiere.id_period === periode.id_period){
-                        tabSommeNbH[module.id][periode.id_period] += matiere.nbH;
-                    }
-                })
-            })
-        })
-
         let tabNbH = [];
 
         this.props.allModules.map(module => {
@@ -41,8 +27,6 @@ class SecondView extends Component{
                 })
             })
         })
-
-        console.log(tabNbH);
 
         return (
             <div style={{marginLeft: '10%', marginRight: '10%'}}>
@@ -67,12 +51,12 @@ class SecondView extends Component{
                                 return (
                                     <React.Fragment>
                                         <Table.Row active>
-                                            <Table.Cell key={module.id}>{"Module " + module.id + " : " + module.name}</Table.Cell>
+                                            <div style={{fontWeight: 'bold'}}>
+                                                <Table.Cell key={module.id}>{"Module " + module.id + " : " + module.name}</Table.Cell>
+                                            </div>
                                             {this.props.allPeriodes.map(periode => {
                                                 return (
-                                                    <Table.Cell>
-                                                        {tabSommeNbH[module.id][periode.id_period]}
-                                                    </Table.Cell>
+                                                    <Table.Cell />
                                                 )
                                             })}
                                         </Table.Row>
@@ -85,10 +69,22 @@ class SecondView extends Component{
                                                         {this.props.allPeriodes.map(periode => {
                                                             if (matiere.id_period === periode.id_period){
                                                                 return(
-                                                                    <Table.Cell>{tabNbH[module.id][periode.id_period][matiere.id_mat]}</Table.Cell>
+                                                                    <Table.Cell>
+                                                                        <Card fluid>
+                                                                            <Card.Content>
+                                                                                    <Card.Description style={{color: matiere.couleur}}>{tabNbH[module.id][periode.id_period][matiere.id_mat] + " h"}
+                                                                                        <div style={{float: 'right', marginTop: '-0.24%'}}>
+                                                                                            <Icon name='plus' size='large'/>
+                                                                                            <Icon name='minus' size='large'/>
+                                                                                            <Icon name='trash alternate outline' size='large'/>
+                                                                                        </div>
+                                                                                    </Card.Description>
+                                                                            </Card.Content>
+                                                                        </Card>
+                                                                    </Table.Cell>
                                                                 )
                                                             }
-                                                            else{ return( <Table.Cell></Table.Cell> ) }
+                                                            else{ return( <Table.Cell onClick={() => console.log(matiere)}></Table.Cell> ) }
                                                         })}
                                                     </Table.Row>
                                                 )
