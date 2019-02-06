@@ -8,14 +8,13 @@ const mapStateToProps = state => {
 }
 
 // TODO : mettre un truc pour déplier le bandeau module (un + ou un - sur la gauche avec float: left)
-//        cases de total pour les nb d'h
 //        échange de cases horaires (au clic ou DnD)
 
 
 class SecondView extends Component{
 
     render(){
-        let tabNbH = [];
+        let tabNbH = []; let tabSommePeriodes = [];
 
         this.props.allModules.map(module => {
             tabNbH[module.id] = [];
@@ -39,6 +38,7 @@ class SecondView extends Component{
                         <Table.Row>
                             <Table.HeaderCell />
                             {this.props.allPeriodes.map(periode => {
+                                tabSommePeriodes[periode.id_period] = 0;
                                 return (
                                     <Table.HeaderCell>
                                     { "Période " + periode.id_period + " : " +
@@ -72,6 +72,7 @@ class SecondView extends Component{
                                                         {this.props.allPeriodes.map(periode => {
                                                             if (matiere.id_period === periode.id_period){
                                                                 if (matiere.nbH > 0){
+                                                                    tabSommePeriodes[periode.id_period] += matiere.nbH;
                                                                     return(
                                                                         <Table.Cell>
                                                                             <Card fluid>
@@ -102,6 +103,24 @@ class SecondView extends Component{
                                     </React.Fragment>
                                 )
                             })}
+                            <Table.Row active>
+                                <div style={{fontWeight: 'bold'}}>
+                                    <Table.Cell key="total">TOTAL</Table.Cell>
+                                </div>
+                                {this.props.allPeriodes.map(periode => {
+                                    return (
+                                        <Table.Cell />
+                                    )
+                                })}
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell></Table.Cell>
+                                {this.props.allPeriodes.map(periode => {
+                                    return (
+                                        <Table.Cell><div style={{fontSize:"110%", fontWeight: "bold"}}>{tabSommePeriodes[periode.id_period] + " h"}</div></Table.Cell>
+                                    )
+                                })}
+                            </Table.Row>
                     </Table.Body>
                 </Table>
             </div>
