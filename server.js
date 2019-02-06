@@ -239,4 +239,31 @@ app.post('/api/getPeriodes', (req, res) => {
     })
 })
 
+// Permet d'incrémenter ou de décrémenter le nombre d'heures pour une matière
+app.post('/api/modifyTimeForPeriode', (req, res) => {
+    var requete = mysql.format('UPDATE matiere MODIFY SET nbH=? WHERE id_mat=?', [req.body.nouvellePeriode, req.body.id_mat]);
+    db.query(requete, (err, result, fields) => {
+        if (err) throw err;
+        res.send( JSON.parse( JSON.stringify(result) )   )
+    })
+})
+
+// Change une matière de période
+app.post('/api/modifyPeriodeForMatiere', (req, res) => {
+    var requete = mysql.format('UPDATE matiere MODIFY SET id_period=? WHERE id_mat=?', [req.body.nouvellePeriode, req.body.id_mat]);
+    db.query(requete, (err, result, fields) => {
+        if (err) throw err;
+        res.send( JSON.parse( JSON.stringify(result) )   )
+    })
+})
+
+// Permet de mettre à 0 nombre d'heures pour une matière
+app.post('/api/deleteNbH', (req, res) => {
+    var requete = mysql.format('UPDATE matiere MODIFY SET nbH=? WHERE id_mat=?', [0, req.body.id_mat]);
+    db.query(requete, (err, result, fields) => {
+        if (err) throw err;
+        res.send( JSON.parse( JSON.stringify(result) )   )
+    })
+})
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

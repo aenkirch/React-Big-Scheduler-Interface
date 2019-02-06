@@ -30,7 +30,7 @@ class Home extends Component{
         let eventInfos = this.props.eventInfos;
         return (
             <div>
-                {this.props.isFirstViewActive ? <MyScheduler /> : <SecondView allModules={this.props.allModules} allPeriodes={this.props.allPeriodes}/>}
+                {this.props.isFirstViewActive ? <MyScheduler /> : <SecondView />}
                 <HomeSelects />
                 <div style={{marginTop: '-4%'}}>
                     {this.props.schedulerData.resources[0] ? null : <WelcomeAnimation />}

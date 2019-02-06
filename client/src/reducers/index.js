@@ -6,7 +6,8 @@ import { ALL_GROUPES_LOADED, ALL_FORMATIONS_LOADED,
     MOVE_EVENT, UPDATE_EVENT_END,
     UPDATE_EVENT_START, ALL_MODULES_LOADED, ALL_MATIERES_LOADED,
     ALL_PROFS_LOADED, ALL_SALLES_LOADED, EVENT_INFOS_LOADED, 
-    EVENT_INFOS_ENDED, SHOW_FIRST_VIEW, SHOW_SECOND_VIEW } from "../constants/index";
+    EVENT_INFOS_ENDED, SHOW_FIRST_VIEW, SHOW_SECOND_VIEW,
+    LOAD_MATIERES_AFTER_EDIT } from "../constants/index";
 import { SchedulerData, ViewTypes } from 'react-big-scheduler';
 import config from "../schedulerConfig";
 
@@ -114,6 +115,8 @@ const allModulesReducer = (state = [], action) => {
 
 const allMatieresReducer = (state = [], action) => {
   switch (action.type) {
+    case LOAD_MATIERES_AFTER_EDIT:
+      return action.payload;
     case ALL_MATIERES_LOADED:
       return action.payload;
     default:
