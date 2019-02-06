@@ -7,10 +7,9 @@ const mapStateToProps = state => {
     return { allMatieres: state.allMatieres, allModules: state.allModules, allPeriodes: state.allPeriodes }
 }
 
-// TODO : Faire des actions reliées au +/-/delete qui modifient le allMatieres dans le state
-//        split la classe
-//        mettre un truc pour déplier le bandeau module (un + ou un - sur la gauche avec float: left)
-//        déplacer les horaires d'une période vers une autre si on clique dans la case de l'autre créneau (pour une même matière)
+// TODO : mettre un truc pour déplier le bandeau module (un + ou un - sur la gauche avec float: left)
+//        cases de total pour les nb d'h
+//        échange de cases horaires (au clic ou DnD)
 
 
 class SecondView extends Component{
