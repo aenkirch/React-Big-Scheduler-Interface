@@ -39,7 +39,7 @@ This project was developed during a few months as a school project for Paris Des
 **Front-end** : React w/ Redux <br />
 **Database** : MySQL <br />
 
-**Some other ones** : React Semantic UI, Typed.JS, React-Toastify, React-Router, 
+**Some other ones** : React Semantic UI, Typed.JS, React-Toastify, React-Router
 
 ---
 
@@ -108,9 +108,9 @@ The project uses an **MVC** architectural pattern :
 
 Thanks to <a target="_blank" href="https://github.com/StephenChou1017" rel="noopener noreferrer">StephenChou1017</a> for the scheduler component he made and for his help during this project development !
 
-Thanks to our teacher Jean-Michel Ilié for giving us such a project which allowed us to learn a lot of the technologies we used to develop this project !
+Thanks to our teacher Jean-Michel Ilié for giving our class such a project which allowed me to learn a lot of the technologies I used to develop this project !
 
-And of course, thanks to every person who helped us during this project and to every person who developed a package we used in this project, it's all because of you ;)
+And of course, thanks to every person who helped me during this project and to every person who developed a package I used in this project, it's all because of you ;)
 
 ---
 
