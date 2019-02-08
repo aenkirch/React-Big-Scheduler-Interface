@@ -36,6 +36,8 @@ This project was developed during a few months as a school project for Paris Des
 **Front-end** : React w/ Redux <br />
 **Database** : MySQL <br />
 
+**Some other ones** : React Semantic UI, Typed.JS, React-Toastify, React-Router, 
+
 ---
 
 ## Setup
