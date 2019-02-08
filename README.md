@@ -1,8 +1,11 @@
+<h1 align="center">
 React-Big-Scheduler Interface
-============
-[![Current Version](https://img.shields.io/badge/version-0.1-green.svg)](https://github.com/aenkirch/React-Big-Scheduler-Interface) [![Live Demo](https://img.shields.io/badge/demo-offline-red.svg)]()
+</h1>
 
-This is a React/Node.JS app which uses the <a href="https://github.com/StephenChou1017/react-big-scheduler">React-Big-Scheduler project</a> in order to display a scheduler related to a university class which you can select in a list : it also offers some more features like adding events on it, etc...
+
+<p align="center">
+    This is a React/Node.JS app which uses the <a href="https://github.com/StephenChou1017/react-big-scheduler">React-Big-Scheduler project</a> in order to display a scheduler related to a university class which you can select in a list : it also offers some more features like adding events on it, etc...
+</p>
 
 ![Chat Preview](./docResources/screely2homepage.png)
 
@@ -24,7 +27,7 @@ This project was developed during a few months as a school project for Paris Des
     <li>Confirmation of done action or error if one happened on DB displayed on a toast</li>
     <li>Show infos on events displayed on the scheduler</li>
     <li>Handles the conflict between two events if happening at the same time</li>
-    <li>ALPHA feature - 2 views : two ways to organize your time !</li>
+    <li>2 scheduler views available : two ways to organize your time !</li>
     <li>Single page design </li>
 </ul>
 
